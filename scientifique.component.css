@@ -1,0 +1,22 @@
+.contour {
+    border: solid black 1px;
+}
+
+.ecran{
+    width: 100%;
+    text-align: right;
+}
+
+#calculette{
+    margin: 0;
+}
+
+#calculette button{
+    padding: 0;
+    width: 100%;
+    border: 1px solid black;
+}
+
+.row [class*="col-"]{
+    padding: 0;
+}

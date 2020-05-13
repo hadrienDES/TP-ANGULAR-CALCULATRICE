@@ -1,0 +1,48 @@
+<div>
+    <h1>{{title}} {{personne.prenom}} {{personne.nom}}</h1>
+
+    <h2>Element</h2>
+    <h2>Détail</h2>
+        <ul>
+            <li>Nom : {{personne.nom}}</li>
+            <li>Prenom : {{personne.prenom}}</li>
+            <li>Decouverte : {{personne.decouverte}}</li>
+            <li>Description : {{personne.description}}</li>
+        </ul>
+    
+
+    <h1>Calculatrice</h1>
+
+    <div class="container" id="calculette">
+        <div class="contour col-2">
+            <div class="row" style="padding: 2px;">
+                <input class="ecran" type="text" value="{{calculette.ecran}}" readonly/>
+            </div>
+            
+            <div class="row">
+                <div class="col-3"><button (click)="ecriture('7')">{{calculette.num7}}</button></div>
+                <div class="col-3"><button (click)="ecriture('8')">{{calculette.num8}}</button></div>
+                <div class="col-3"><button (click)="ecriture('9')">{{calculette.num9}}</button></div>
+                <div class="col-3"><button (click)="ecriture('+')">{{calculette.signePlus}}</button></div>
+            </div>
+            <div class="row">
+                <div class="col-3"><button (click)="ecriture('4')">{{calculette.num4}}</button></div>
+                <div class="col-3"><button (click)="ecriture('5')">{{calculette.num5}}</button></div>
+                <div class="col-3"><button (click)="ecriture('6')">{{calculette.num6}}</button></div>
+                <div class="col-3"><button (click)="ecriture('*')">{{calculette.signeMultiplier}}</button></div>
+            </div>
+            <div class="row">
+                <div class="col-3"><button (click)="ecriture('1')">{{calculette.num1}}</button></div>
+                <div class="col-3"><button (click)="ecriture('2')">{{calculette.num2}}</button></div>
+                <div class="col-3"><button (click)="ecriture('3')">{{calculette.num3}}</button></div>
+                <div class="col-3"><button (click)="ecriture('/')">{{calculette.signeDiviser}}</button></div>
+            </div>
+            <div class="row">
+                <div class="col-3"><button (click)="reset()">{{calculette.signeReset}}</button></div>
+                <div class="col-3"><button (click)="ecriture('0')">{{calculette.num0}}</button></div>
+                <div class="col-6"><button (click)="calcul()">{{calculette.signeEgal}}</button></div>
+
+            </div>
+        </div>
+    </div>
+</div>
