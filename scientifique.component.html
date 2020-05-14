@@ -41,8 +41,18 @@
                 <div class="col-3"><button (click)="reset()">{{calculette.signeReset}}</button></div>
                 <div class="col-3"><button (click)="ecriture('0')">{{calculette.num0}}</button></div>
                 <div class="col-6"><button (click)="calcul()">{{calculette.signeEgal}}</button></div>
+            </div>
 
+            <div class="row" style="padding: 2px;">
+                <ul *ngIf="this.calculette.historique">
+                    <li *ngFor="let histo of this.calculette.historique">
+                    {{ histo }}
+                    </li>
+                  </ul>
             </div>
         </div>
+
+        
+
     </div>
 </div>

@@ -20,3 +20,12 @@
 .row [class*="col-"]{
     padding: 0;
 }
+
+.historique{
+    width: 100%;
+    border: solid 1px black;
+}
+
+ul{
+    margin-bottom: 0;
+}

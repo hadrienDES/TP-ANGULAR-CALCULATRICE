@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TestBed } from '@angular/core/testing';
 
 @Component({
   selector: 'app-root',
@@ -17,6 +18,7 @@ export class ScientifiqueComponent implements OnInit {
   }
 
   calculette = {
+    historique : Array(),
     signeActif : "",
     valeurCachee : "",
     ecran: "",
@@ -42,25 +44,43 @@ export class ScientifiqueComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
   ecriture(valeur){
+    if(this.calculette.ecran && !this.calculette.valeurCachee)
+      {
+          this.calculette.ecran = ""
+      }
     if(isNaN(valeur)) {
-      this.calculette.signeActif = valeur;
-      this.calculette.valeurCachee = (this.calculette.ecran)?this.calculette.ecran:"0";
-      this.calculette.ecran = "";
-    } else {
-      this.calculette.ecran += valeur;
+
+      if(!this.calculette.valeurCachee)
+      {
+        if(Array("+","*","-").includes(valeur))
+        {
+        this.calculette.valeurCachee = "0";
+        }
+        else
+        {
+        this.calculette.valeurCachee = "1";
+        }
+      }
+        this.calculette.ecran = "";
     }
+    else {
+        this.calculette.ecran += valeur;
+    }
+    this.calculette.valeurCachee += valeur;
   }
 
   reset(){
-    this.calculette.ecran = "";
-    this.calculette.valeurCachee = "";
-    this.calculette.signeActif = "";
+    if(this.calculette.valeurCachee)
+    {
+      this.calculette.historique.unshift(this.calculette.valeurCachee + "=" + eval(this.calculette.valeurCachee));
+    }
+      this.calculette.ecran = this.calculette.valeurCachee = "";
   } 
 
-  calcul(){
-    this.calculette.ecran = eval(this.calculette.valeurCachee + this.calculette.signeActif + this.calculette.ecran);
+  calcul(){  
+    this.calculette.historique.unshift(this.calculette.valeurCachee + "=" + eval(this.calculette.valeurCachee));
+    this.calculette.ecran = this.calculette.valeurCachee = eval(this.calculette.valeurCachee);
   }
 
 }
